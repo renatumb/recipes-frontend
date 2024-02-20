@@ -1,0 +1,16 @@
+<div class="px-14 py-7">
+    <div class="flex justify-center flex-wrap gap-6">
+        @for (item of recipes; track 1) {
+            <app-recipe-card/>
+        } @empty {
+            <div>
+                NO RECIPES
+            </div>
+        }
+    </div>
+    <div class="fixed bottom-20 right-20">
+        <button mat-fab color="primary">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>
