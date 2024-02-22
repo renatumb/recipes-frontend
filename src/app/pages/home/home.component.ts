@@ -1,7 +1,10 @@
 import {Component} from '@angular/core';
 import {RecipeCardComponent} from "../recipe-card/recipe-card.component";
-import {MatButtonModule} from "@angular/material/button";
+
+import {CreateRecipeFormComponent} from "../create-recipe-form/create-recipe-form.component";
+import {MatDialog} from "@angular/material/dialog";
 import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
 
 @Component({
     selector: 'app-home',
@@ -16,5 +19,13 @@ import {MatIconModule} from "@angular/material/icon";
 })
 export class HomeComponent {
 
-    recipes = [1, 1, 1, 1, 1, ]
+    recipes = [1, 1, 1, 1, 1,]
+
+    constructor(public newRecipeDialog: MatDialog) {
+    }
+
+    openNewRecipeDialog(): void {
+        this.newRecipeDialog.open(CreateRecipeFormComponent)
+    }
+
 }
