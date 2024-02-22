@@ -5,6 +5,7 @@ import {CommonModule} from "@angular/common";
 import {NavbarComponent} from "./pages/navbar/navbar.component";
 import {FooterComponent} from "./pages/footer/footer.component";
 import {HomeComponent} from "./pages/home/home.component";
+import {AuthComponent} from "./pages/auth/auth.component";
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ import {HomeComponent} from "./pages/home/home.component";
     MatIcon,
     NavbarComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    AuthComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
