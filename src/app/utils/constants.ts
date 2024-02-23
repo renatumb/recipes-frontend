@@ -4,3 +4,8 @@ export enum STATUS {
     WARN = 'warn',
     INFO = 'info'
 }
+
+export const GENERIC_ERROR = {
+    message: 'Generic Error',
+    status: ''
+}
