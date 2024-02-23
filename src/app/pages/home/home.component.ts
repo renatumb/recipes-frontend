@@ -5,6 +5,8 @@ import {CreateRecipeFormComponent} from "../create-recipe-form/create-recipe-for
 import {MatDialog} from "@angular/material/dialog";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import {NavbarComponent} from "../navbar/navbar.component";
+import {FooterComponent} from "../footer/footer.component";
 
 @Component({
     selector: 'app-home',
@@ -12,7 +14,9 @@ import {MatButtonModule} from "@angular/material/button";
     imports: [
         RecipeCardComponent,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        NavbarComponent,
+        FooterComponent
     ],
     templateUrl: './home.component.html',
     styleUrl: './home.component.css'
