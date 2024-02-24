@@ -36,8 +36,8 @@ export class RecipeCardComponent {
                 public snackBarService: SnackbarService) {
     }
 
-    openEditRecipeComponent(): void {
-        this.editRecipeDialog.open(EditRecipeFormComponent)
+    openEditRecipeComponent(recipe: Recipe): void {
+        this.editRecipeDialog.open(EditRecipeFormComponent, { data: recipe } )
     }
 
     likeDislikeRecipe(recipeID: number) {

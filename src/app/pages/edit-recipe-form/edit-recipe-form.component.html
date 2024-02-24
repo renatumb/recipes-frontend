@@ -24,8 +24,8 @@
             </div>
             <div>
                 <mat-radio-group aria-label="Select an option" name="foodType" [(ngModel)]="recipeItem.foodType">
-                    <mat-radio-button value="1">Vegetarian</mat-radio-button>
-                    <mat-radio-button value="2">Non-Vegetarian</mat-radio-button>
+                    <mat-radio-button [value]="true">Vegetarian</mat-radio-button>
+                    <mat-radio-button [value]="false">Non-Vegetarian</mat-radio-button>
                 </mat-radio-group>
             </div>
 
