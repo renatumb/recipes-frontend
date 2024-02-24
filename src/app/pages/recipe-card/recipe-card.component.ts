@@ -5,7 +5,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatDialog} from "@angular/material/dialog";
 import {MatBadgeModule} from '@angular/material/badge';
 import {EditRecipeFormComponent} from "../edit-recipe-form/edit-recipe-form.component";
-import {Recipe} from "../../utils/constants";
+import {GENERIC_ERROR, Recipe, STATUS} from "../../utils/constants";
+import {RecipeService} from "../../services/recipe-service.service";
+import {SnackbarService} from "../../services/snackbar-service.service";
 
 @Component({
     selector: 'app-recipe-card',
@@ -29,10 +31,30 @@ export class RecipeCardComponent {
     @Input()
     enableEditDeleteButtons: boolean = false;
 
-    constructor(public editRecipeDialog: MatDialog) {
+    constructor(public editRecipeDialog: MatDialog,
+                public recipeService: RecipeService,
+                public snackBarService: SnackbarService) {
     }
 
     openEditRecipeComponent(): void {
         this.editRecipeDialog.open(EditRecipeFormComponent)
+    }
+
+    likeDislikeRecipe(recipeID: number) {
+        this.recipeService.likeRecipe(recipeID).subscribe({
+            next: resp => {
+                this.recipe = {
+                    ...this.recipe,
+                    ...resp
+                }
+            }, error: err => {
+                let error = {
+                    ...GENERIC_ERROR,
+                    ...err
+                }
+
+                this.snackBarService.open(error.message, STATUS.ERROR)
+            }
+        })
     }
 }

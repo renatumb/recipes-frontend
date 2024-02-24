@@ -15,25 +15,25 @@ body {
 }
 
 .success-snackbar {
-    --mdc-snackbar-container-color:  rgb(0,255,0, 0.35)  ;
+    --mdc-snackbar-container-color: rgb(49, 96, 41);
     --mdc-snackbar-supporting-text-color: white;
     --mdc-snackbar-container-shape: 10px;
 }
 
 .error-snackbar {
-    --mdc-snackbar-container-color: rgba(255,0,0,35%) ;
+    --mdc-snackbar-container-color: rgb(148, 56, 56);
     --mdc-snackbar-supporting-text-color: white;
     --mdc-snackbar-container-shape: 10px;
 }
 
 .warn-snackbar {
-    --mdc-snackbar-container-color: rgba(247,188,43,0.74);
+    --mdc-snackbar-container-color: rgb(247,188,43,1);
     --mdc-snackbar-supporting-text-color: white;
     --mdc-snackbar-container-shape: 10px;
 }
 
 .info-snackbar {
-    --mdc-snackbar-container-color: rgba(105,240,174,1) ;
+    --mdc-snackbar-container-color: rgb(105,240,174) ;
     --mdc-snackbar-supporting-text-color: rgb(65 65 65);
     --mdc-snackbar-container-shape: 10px;
 }
