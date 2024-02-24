@@ -34,7 +34,7 @@
 
         @if (enableEditDeleteButtons) {
             <div>
-                <button mat-icon-button>
+                <button mat-icon-button (click)="removeRecipe(recipe)" >
                     <mat-icon>delete</mat-icon>
                 </button>
             </div>
