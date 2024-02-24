@@ -29,6 +29,10 @@ export class HomeComponent implements OnInit {
 
     recipes!: any[];
 
+    currentPage: number = -1
+    firstPage : number = 0;
+    lastPage : number =  -1;
+
     constructor(public newRecipeDialog: MatDialog,
                 public recipeService: RecipeService,
                 public spinnerService: SpinnerService,
@@ -40,11 +44,18 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.loadData(0)
+    }
+
+    public loadData(pageNumber: number){
+        console.log( 'page required\t' + pageNumber)
         this.spinnerService.open()
-        this.recipeService.findAllRecipes().subscribe({
+        this.recipeService.findAllRecipes( pageNumber ).subscribe({
             next: resp => {
                 this.spinnerService.close()
                 this.recipes = resp.content
+                this.currentPage = resp.number
+                this.lastPage = resp.totalPages -1
             }, error: err => {
                 let error = {
                     ...GENERIC_ERROR,
@@ -56,5 +67,4 @@ export class HomeComponent implements OnInit {
             }
         })
     }
-
 }
