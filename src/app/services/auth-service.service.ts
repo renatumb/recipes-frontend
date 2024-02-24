@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {BehaviorSubject, Observable, tap} from "rxjs";
+import { Observable} from "rxjs";
 import {Router} from "@angular/router";
 
 @Injectable({
@@ -34,21 +34,46 @@ export class AuthService {
         this.router.navigate(['/'])
     }
 
-    public validateToken(): Observable<any> {
+    public validateToken(requestedUrl: string): void {
+        console.log( "### AuthService.validateToken")
         let token = localStorage.getItem('token')
 
-        let httpHeaders: HttpHeaders = new HttpHeaders()
-            .set('Authorization', 'Bearer ' + token)
+        let storedRequetedUrl = localStorage.getItem('requestedUrl')
+        if (storedRequetedUrl === requestedUrl) {
+            return
+        }
 
-        return this.httpClient.request(
+        this.httpClient.request(
             'GET',
-            this.baseUrl + '/auth',
-            { headers : httpHeaders }
-        )
+            this.baseUrl + '/auth'
+        ).subscribe({
+            next: resp => {
+                localStorage.setItem('requestedUrl', requestedUrl)
+                this.router.navigate([requestedUrl])
+            },
+            error: err => {
+                console.error( "### AuthService.validateToken")
+                console.error(err)
+                localStorage.clear()
+            }
+
+        })
     }
 
-    public isAuthenticated(): boolean{
+    public isAuthenticated(requestedUrl: string): boolean {
+        console.log( "### AuthService.isAuthenticated")
         let token = localStorage.getItem('token')
-        return token? true : false;
+        let storedRequetedUrl = localStorage.getItem('requestedUrl')
+
+        this.validateToken(requestedUrl)
+
+        if (!token || !storedRequetedUrl || !requestedUrl) {
+            return false;
+        }
+
+        if (storedRequetedUrl === requestedUrl) {
+            return true;
+        }
+        return false;
     }
 }
