@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html, body {
   height: 100%;
@@ -14,3 +14,26 @@ body {
   color: white;
 }
 
+.success-snackbar {
+    --mdc-snackbar-container-color:  rgb(0,255,0, 0.35)  ;
+    --mdc-snackbar-supporting-text-color: white;
+    --mdc-snackbar-container-shape: 10px;
+}
+
+.error-snackbar {
+    --mdc-snackbar-container-color: rgba(255,0,0,35%) ;
+    --mdc-snackbar-supporting-text-color: white;
+    --mdc-snackbar-container-shape: 10px;
+}
+
+.warn-snackbar {
+    --mdc-snackbar-container-color: rgba(247,188,43,0.74);
+    --mdc-snackbar-supporting-text-color: white;
+    --mdc-snackbar-container-shape: 10px;
+}
+
+.info-snackbar {
+    --mdc-snackbar-container-color: rgba(105,240,174,1) ;
+    --mdc-snackbar-supporting-text-color: rgb(65 65 65);
+    --mdc-snackbar-container-shape: 10px;
+}

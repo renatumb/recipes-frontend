@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {MatIcon} from "@angular/material/icon";
 import {MatIconButton} from "@angular/material/button";
 import {MatToolbar} from "@angular/material/toolbar";
+import {AuthService} from "../../services/auth-service.service";
 
 @Component({
     selector: 'app-navbar',
@@ -16,4 +17,10 @@ import {MatToolbar} from "@angular/material/toolbar";
 })
 export class NavbarComponent {
 
+    constructor(public authService: AuthService){
+
+    }
+    logout(): void {
+         this.authService.logout()
+    }
 }

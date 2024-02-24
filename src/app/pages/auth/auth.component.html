@@ -1,0 +1,91 @@
+<div class="flex justify-center h-screen items-center overflow-hidden">
+    <div class="container">
+        <div class="cover" [ngClass]="{'rotate-active':isRegister}">
+            <div class="front">
+                <img src="./assets/front.jpg"/>
+                <div class="text">
+                <span class="text-1">
+                    Share, Savor and, Create: Your recipe Haven Awaits!
+                </span>
+                    <span>Lets get connected</span>
+                </div>
+            </div>
+            <div class="back">
+                <img src="./assets/back.jpg"/>
+            </div>
+        </div>
+
+        <div class="form h-full">
+            <div class="form-content h-full">
+                <div class="login-form">
+                    <h1 class="text-lg font-bold text-center ">Login</h1>
+                    <form [formGroup]="this.loginForm">
+                        <div class="p-4">
+                            <mat-form-field class="w-full">
+                                <mat-label class="text-gray-200">Email</mat-label>
+                                <input matInput class="py-2 px-3 text-gray-200 mt-1 focus:shadow-outline" formControlName="email"/>
+                            </mat-form-field>
+                        </div>
+                        <div class="p-4">
+                            <mat-form-field class="w-full">
+                                <mat-label class="text-gray-200">Password</mat-label>
+                                <input matInput class="py-2 px-3 text-gray-200 mt-1 focus:shadow-outline" formControlName="password"/>
+                            </mat-form-field>
+                        </div>
+                        <div class="p-4">
+                            <button class="w-full" mat-raised-button color="primary" (click)="handleLogin()">
+                                <mat-icon class="material-icons">login</mat-icon>
+                                Login
+                            </button>
+                        </div>
+                    </form>
+                    <div class="flex items-center gap-2 justify-center mt-2">
+                        Don't have an account?
+                        <button mat mat-button color="warn" (click)="isRegister=!isRegister"> Register</button>
+                    </div>
+                </div>
+
+                <div class="signup-form">
+                    <h1 class="text-lg font-bold text-center ">SignUp</h1>
+                    <form [formGroup]="this.signUpForm">
+                        <div class="p-4">
+                            <mat-form-field class="w-full">
+                                <mat-label class="text-gray-200">First Name</mat-label>
+                                <input matInput class="py-2 px-3 text-gray-200 mt-1 focus:shadow-outline" formControlName="firstName"/>
+                            </mat-form-field>
+                        </div>
+                        <div class="p-4">
+                            <mat-form-field class="w-full">
+                                <mat-label class="text-gray-200">Last Name</mat-label>
+                                <input matInput class="py-2 px-3 text-gray-200 mt-1 focus:shadow-outline" formControlName="lastName"/>
+                            </mat-form-field>
+                        </div>
+                        <div class="p-4">
+                            <mat-form-field class="w-full">
+                                <mat-label class="text-gray-200">Email</mat-label>
+                                <input matInput class="py-2 px-3 text-gray-200 mt-1 focus:shadow-outline" formControlName="email"/>
+                            </mat-form-field>
+                        </div>
+                        <div class="p-4">
+                            <mat-form-field class="w-full">
+                                <mat-label class="text-gray-200">Password</mat-label>
+                                <input matInput class="py-2 px-3 text-gray-200 mt-1 focus:shadow-outline" formControlName="password"/>
+                            </mat-form-field>
+                        </div>
+                        <div class="p-4">
+                            <button class="w-full" mat-raised-button color="primary" (click)="handleSignUp()">
+                                <mat-icon class="material-icons">person_add</mat-icon>
+                                Register
+                            </button>
+                        </div>
+                    </form>
+                    <div class="flex items-center gap-2 justify-center mt-2">
+                        Already have an account?
+                        <button mat mat-button color="warn" (click)="isRegister=!isRegister"> Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
