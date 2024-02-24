@@ -1,35 +1,44 @@
 <mat-card class="max-w-96">
     <mat-card-header>
         <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        <mat-card-title>#{{ recipe.id }} . {{ recipe.title }}</mat-card-title>
+        <mat-card-subtitle>by {{ recipe.user.firstName }}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image class="max-h-[400px]" src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+    <img mat-card-image class="max-h-[400px]" [src]="recipe.image"
          alt="Photo of a Shiba Inu">
     <mat-card-content>
         <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
+            {{ recipe.description }}
         </p>
     </mat-card-content>
     <mat-card-actions class="flex justify-between">
         <div>
-            <button mat-icon-button>
-                <mat-icon matBadge="15" matBadgeSize="medium" matBadgeColor="accent" matBadgePosition="below after">thumb_up</mat-icon>
+            <button mat-icon-button (click)="likeDislikeRecipe(recipe.id)" >
+                @if (recipe.likes.length) {
+                    <mat-icon matBadge="{{recipe.likes.length}}" matBadgeSize="medium" matBadgeColor="accent" matBadgePosition="below after" aria-hidden="false">thumb_up</mat-icon>
+                } @else {
+                    <mat-icon aria-hidden="false">thumb_up</mat-icon>
+                }
             </button>
-            <button mat-icon-button (click)="openEditRecipeComponent()">
-                <mat-icon>edit</mat-icon>
-            </button>
+
+            @if (enableEditDeleteButtons) {
+                <button mat-icon-button (click)="openEditRecipeComponent(recipe)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            }
+
             <button mat-icon-button>
                 <mat-icon>share</mat-icon>
             </button>
         </div>
-        <div>
-            <button mat-icon-button>
-                <mat-icon>delete</mat-icon>
-            </button>
-        </div>
+
+        @if (enableEditDeleteButtons) {
+            <div>
+                <button mat-icon-button (click)="removeRecipe(recipe)" >
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        }
     </mat-card-actions>
 </mat-card>
 

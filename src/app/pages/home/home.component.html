@@ -1,8 +1,28 @@
-<app-navbar/>
+<app-navbar [loggedUser]="loggedUser" />
 <div class="px-14 py-7">
+    <div class="fixed top-14 right-3/4 z-10 bg-[#1f032a] opacity-80 rounded-full ">
+        <button mat-icon-button color="warn"  [disabled]="currentPage === firstPage" (click)="loadData(0)">
+            <mat-icon>first_page</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" [disabled]="currentPage === firstPage" (click)="loadData(currentPage-1)" >
+            <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+
+        <button  mat-icon-button color="warn" [disabled]="true">
+            {{ currentPage + 1 }}
+        </button>
+
+        <button mat-icon-button color="warn" [disabled]="currentPage === lastPage" (click)="loadData(currentPage+1)" >
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" [disabled]="currentPage === lastPage" (click)="loadData(lastPage)" >
+            <mat-icon>last_page</mat-icon>
+        </button>
+    </div>
+
     <div class="flex justify-center flex-wrap gap-6">
         @for (item of recipes; track 1) {
-            <app-recipe-card/>
+            <app-recipe-card [recipe]="item" [enableEditDeleteButtons]=" loggedUser.id === item.user.id "/>
         } @empty {
             <div>
                 NO RECIPES

@@ -76,4 +76,9 @@ export class AuthService {
         }
         return false;
     }
+
+    public getToken(): string {
+        const token: string | null = localStorage.getItem('token')
+        return token ? token : ''
+    }
 }

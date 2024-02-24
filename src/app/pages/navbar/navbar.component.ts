@@ -1,8 +1,12 @@
-import {Component} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MatIcon} from "@angular/material/icon";
-import {MatIconButton} from "@angular/material/button";
+import {MatButton, MatIconButton} from "@angular/material/button";
 import {MatToolbar} from "@angular/material/toolbar";
+import {UserService} from "../../services/user.service";
+import {JwtService} from "../../services/jwt.service";
 import {AuthService} from "../../services/auth-service.service";
+import {Recipe, User} from "../../utils/constants";
+import {MatDialogClose} from "@angular/material/dialog";
 
 @Component({
     selector: 'app-navbar',
@@ -17,8 +21,17 @@ import {AuthService} from "../../services/auth-service.service";
 })
 export class NavbarComponent {
 
-    constructor(public authService: AuthService){
+    @Input('loggedUser')
+    loggedUser: User = {
+        id: 0,
+        email: "",
+        firstName: "",
+        lastName: "",
+        password: ""
+    }
 
+    constructor(public authService: AuthService,
+                ) {
     }
     logout(): void {
          this.authService.logout()
