@@ -26,5 +26,5 @@ export type Recipe = {
     vegetarian: boolean
     createdAt: Date,
     user: User
-    likes: [number]
+    likes: number []
 }

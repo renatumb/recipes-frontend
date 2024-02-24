@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Recipe} from "../utils/constants";
 
 @Injectable({
     providedIn: 'root'
@@ -34,9 +35,9 @@ export class RecipeService {
             this.baseUrl + '/recipe/' + recipeID)
     }
 
-    public createRecipe(recipeData: any) {
+    public createRecipe(recipeData: Recipe) {
         return this.httpClient.post(
-            this.baseUrl + '/recipe/',
+            this.baseUrl + '/recipe',
             recipeData)
     }
 
