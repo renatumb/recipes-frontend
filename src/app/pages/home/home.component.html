@@ -2,7 +2,7 @@
 <div class="px-14 py-7">
     <div class="flex justify-center flex-wrap gap-6">
         @for (item of recipes; track 1) {
-            <app-recipe-card/>
+            <app-recipe-card [recipe]="item" />
         } @empty {
             <div>
                 NO RECIPES
