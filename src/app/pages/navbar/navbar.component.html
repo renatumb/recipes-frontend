@@ -4,11 +4,11 @@
             <span>Recipe Sharing</span>
         </div>
         <div>
-            <span class="example-spacer"></span>
-            <button mat-icon-button (click)="logout()">
+            <span class="px-6">Welcome {{loggedUser.firstName}}</span>
+            <button mat-raised-button  color="primary" (click)="logout()">
                 <mat-icon>logout</mat-icon>
+                Logout
             </button>
-
         </div>
     </mat-toolbar>
 </p>

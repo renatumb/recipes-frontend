@@ -1,4 +1,4 @@
-<app-navbar/>
+<app-navbar [loggedUser]="loggedUser" />
 <div class="px-14 py-7">
     <div class="fixed top-14 right-3/4 z-10 bg-[#1f032a] opacity-60 rounded-full ">
         <button mat-icon-button color="accent"  [disabled]="currentPage === firstPage" (click)="loadData(0)">
@@ -22,7 +22,7 @@
 
     <div class="flex justify-center flex-wrap gap-6">
         @for (item of recipes; track 1) {
-            <app-recipe-card [recipe]="item" />
+            <app-recipe-card [recipe]="item" [enableEditDeleteButtons]=" loggedUser.id === item.user.id "/>
         } @empty {
             <div>
                 NO RECIPES

@@ -17,21 +17,28 @@
                 @if (recipe.likes.length) {
                     <mat-icon matBadge="{{recipe.likes.length}}" matBadgeSize="medium" matBadgeColor="accent" matBadgePosition="below after" aria-hidden="false">thumb_up</mat-icon>
                 } @else {
-                    <mat-icon  aria-hidden="false">thumb_up</mat-icon>
+                    <mat-icon aria-hidden="false">thumb_up</mat-icon>
                 }
             </button>
-            <button mat-icon-button (click)="openEditRecipeComponent()">
-                <mat-icon>edit</mat-icon>
-            </button>
+
+            @if (enableEditDeleteButtons) {
+                <button mat-icon-button (click)="openEditRecipeComponent()">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            }
+
             <button mat-icon-button>
                 <mat-icon>share</mat-icon>
             </button>
         </div>
-        <div>
-            <button mat-icon-button>
-                <mat-icon>delete</mat-icon>
-            </button>
-        </div>
+
+        @if (enableEditDeleteButtons) {
+            <div>
+                <button mat-icon-button>
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        }
     </mat-card-actions>
 </mat-card>
 

@@ -26,6 +26,9 @@ export class RecipeCardComponent {
     })
     recipe!: Recipe
 
+    @Input()
+    enableEditDeleteButtons: boolean = false;
+
     constructor(public editRecipeDialog: MatDialog) {
     }
 
