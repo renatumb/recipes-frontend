@@ -30,6 +30,11 @@
             <button mat-icon-button>
                 <mat-icon>share</mat-icon>
             </button>
+            @if (recipe.vegetarian) {
+                <span class="text-green-700 vegetarian-color">
+                    <mat-icon>eco</mat-icon>
+                </span>
+            }
         </div>
 
         @if (enableEditDeleteButtons) {
