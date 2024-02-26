@@ -21,6 +21,15 @@ export class SnackbarService {
             ...this.config,
             panelClass: status + '-snackbar'
         }
+
+        if( status === STATUS.ERROR ){
+            this.config = {
+                ...this.config,
+                ...{
+                    duration: 7000
+                }
+            }
+        }
         this._snackBar.open(message, '', this.config)
     }
 }

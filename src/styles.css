@@ -37,3 +37,12 @@ body {
     --mdc-snackbar-supporting-text-color: rgb(65 65 65);
     --mdc-snackbar-container-shape: 10px;
 }
+
+.progress-color{
+    --mdc-linear-progress-active-indicator-color: rgb(247,188,43) !important;
+    --mdc-circular-progress-active-indicator-color: rgb(247,188,43) !important;
+}
+
+.vegetarian-color{
+    --mat-icon-color: green
+}
