@@ -28,3 +28,5 @@ export type Recipe = {
     user: User
     likes: number []
 }
+
+export const BASE_URL = "https://recipe.renatobonfim.com/api"

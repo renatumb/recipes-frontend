@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Recipe} from "../utils/constants";
+import {BASE_URL, Recipe} from "../utils/constants";
 
 @Injectable({
     providedIn: 'root'
 })
 export class RecipeService {
 
-    private baseUrl = "http://localhost:8082"
+    private baseUrl = BASE_URL
 
     constructor(private httpClient: HttpClient) {
     }

@@ -2,13 +2,14 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {BASE_URL} from "../utils/constants";
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
 
-    private baseUrl = "http://localhost:8082"
+    private baseUrl = BASE_URL
 
     constructor(private httpClient: HttpClient,
                 private router: Router) {
